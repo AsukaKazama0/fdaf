@@ -9,9 +9,13 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 import random
 
+GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
+CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
+
 chrome_options = Options()
 chrome_options.add_argument("--headless")
-driver = webdriver.Chrome(executable_path="./chromedriver",options=chrome_options)
+chrome_options.binary_location = GOOGLE_CHROME_PATH
+driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH,options=chrome_options)
 
 def getUri(cop,cop2):
 	symbol = cop;
