@@ -15,6 +15,8 @@ CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
 chrome_options = Options()
 chrome_options.add_argument("--headless")
 chrome_options.binary_location = GOOGLE_CHROME_PATH
+chrome_options.add_argument("window-size=1920x1480")
+chrome_options.add_argument("disable-dev-shm-usage")
 driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH,options=chrome_options)
 
 def getUri(cop,cop2):
