@@ -35,3 +35,4 @@ def getUri(cop,cop2):
 
 	driver.quit()
 	return y
+driver.quit()
