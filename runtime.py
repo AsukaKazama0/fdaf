@@ -30,8 +30,7 @@ def getUri(cop,cop2,timeFrame,theme,source):
 
 	elem = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, '.chart-gui-wrapper')))
 	clickable = driver.find_element_by_id('header-toolbar-screenshot').click();
-	time.sleep(1)
-	time.sleep(3)
+	time.sleep(9)
 	y = driver.find_element_by_class_name('input-3bEGcMc9').get_attribute("value")
 
 	driver.quit()
