@@ -14,7 +14,7 @@ def cop():
     Theme = request.args.get('Theme')
     source = request.args.get('source')
     if Theme == None:
-        theme = 'DARK'
+        theme = 'dark'
     if source == None:
         source = 'Binance'
     if timeFrame == None:
