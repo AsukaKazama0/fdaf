@@ -10,7 +10,7 @@ app.SECRET_KEY = b'_5#y2L"F4Q8z\n\xec]/'
 def cop():
     s =  request.args.get("s")
     s2 = request.args.get('sn')
-    timeFrame =reqquest.args.get('timeFrame')
+    timeFrame =request.args.get('timeFrame')
     Theme = request.args.get('Theme')
     source = request.args.get('source')
     if Theme == None:
