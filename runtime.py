@@ -24,7 +24,7 @@ def getUri(cop,cop2,timeFrame,theme,source):
 	chrome_options.add_argument("--no-sandbox")
 	driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH,options=chrome_options)
 	symbol = cop;
-	driver.get('https://s.tradingview.com/widgetembed/?frameElementId=tradingview_a6232&symbol={}%3{}{}&interval={}&symboledit=1&saveimage=1&toolbarbg=f1f3f6&studies=%5B%5D&theme={}&style=1&timezone=Etc%2FUTC&studies_overrides=%7B%7D&overrides=%7B%7D&enabled_features=%5B%5D&disabled_features=%5B%5D&locale=in&utm_source=localhost&utm_medium=widget_new&utm_campaign=chart&utm_term=NASDAQ%3AAAPL'.format(source,symbol,cop2,theme,timeFrame))
+	driver.get('https://in.tradingview.com/chart/?symbol={}%3{}{}&interval={}&theme={}'.format(source,symbol,cop2,timeFrame,theme))
 	wait = WebDriverWait(driver, 20)
 
 
