@@ -13,11 +13,12 @@ def cop():
     timeFrame =request.args.get('timeFrame')
     Theme = request.args.get('Theme')
     source = request.args.get('source')
-    if Theme == None:
+    if Theme is None:
         theme = 'dark'
-    if source == None:
+        
+    if source is None:
         source = 'Binance'
-    if timeFrame == None:
+    if timeFrame is None:
         timeFrame = '4H'
     if s != None:
         if s2 == None:
