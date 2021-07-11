@@ -11,9 +11,9 @@ def cop():
     s =  request.args.get("s")
     s2 = request.args.get('sn')
     timeFrame =request.args.get('timeFrame')
-    Theme = request.args.get('Theme')
+    theme = request.args.get('theme')
     source = request.args.get('source')
-    if Theme is None:
+    if theme is None:
         theme = 'dark'
         
     if source is None:
@@ -23,7 +23,7 @@ def cop():
     if s != None:
         if s2 == None:
            s2 = 'USDT'
-        returnUri = getUri(s,s2,timeFrame,Theme,source)
+        returnUri = getUri(s,s2,timeFrame,theme,source)
         json = {"cod": 200,"result":"sucess","imgUri":returnUri }
     else:
         json = """{"code": 500,
