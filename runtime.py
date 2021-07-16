@@ -52,9 +52,9 @@ def coingecko():
 	name = random.randint(000000,999999)
 	name = name , ".png"
 	driver.get(url)
-	elem = driver.find_element_by_class_name("container").screenshot(name)
+	elem = driver.find_element_by_class_name("container").screenshot(str(name))
 	
-	with open(name, "rb") as file:
+	with open(str(name), "rb") as file:
 		url = "https://api.imgbb.com/1/upload"
 		payload = {
 		"key": "a859f23787a42e9036ec053e38b3999c",
