@@ -50,7 +50,7 @@ def coingecko():
 	chrome_options.add_argument("--no-sandbox")
 	driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH,options=chrome_options)
 	name = random.randint(000000,999999)
-	name = name + ".png"
+	name = name , ".png"
 	driver.get(url)
 	elem = driver.find_element_by_class_name("container").screenshot(name)
 	
