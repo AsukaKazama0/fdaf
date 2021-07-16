@@ -57,7 +57,7 @@ def coingecko():
 	with open(name, "rb") as file:
    	 url = "https://api.imgbb.com/1/upload"
    	 payload = {
-       	 "key": key_imgbb,
+       	 "key": "a859f23787a42e9036ec053e38b3999c",
        	 "image": base64.b64encode(file.read()),
    	 }
      	 res = requests.post(url, payload)
