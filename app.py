@@ -30,3 +30,8 @@ def cop():
         "result":"error"
         }"""
     return json
+@app.route("/api/v4/coc", methods=["GET"])
+def coc():
+        returnUri = coingecko()
+        return returnUri
+    
