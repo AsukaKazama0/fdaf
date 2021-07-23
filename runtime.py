@@ -42,7 +42,7 @@ def getUri(cop,cop2,timeFrame,theme,source):
 	url = y
 	r = requests.get(url, allow_redirects=True)
 	filename = random.randint(10000000000000,99999999999999) + random.randint(10000000000000,99999999999999) 
-	filename = "u" + filename + ".png"
+	filename = "u" + str(filename) + ".png"
 	open(filename, 'wb').write(r.content)
 	with open(filename, "rb") as file:
     		url = "https://api.imgbb.com/1/upload"
