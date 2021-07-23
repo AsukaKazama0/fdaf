@@ -11,7 +11,7 @@ import os
 import base64
 import requests
 import random
-
+from PIL import *
 GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
 CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
 # CHROMEDRIVER_PATH = './chromedriver'
@@ -52,6 +52,14 @@ def getUri(cop,cop2,timeFrame,theme,source):
     		}
     		res = requests.post(url, payload)
 	driver.quit()
+	img1 = Image.open(filename)
+  
+# Opening the secondary image (overlay image)
+	img2 = Image.open(r"./Banner.png")
+  
+# Pasting img2 image on top of img1 
+# starting at coordinates (0, 0)
+	img1.paste(img2, (0,0), mask = img2)
 	y = res
 	return y
 def coingecko():
@@ -75,7 +83,6 @@ def coingecko():
 		"image": base64.b64encode(file.read()),
 		}
 		res = requests.post(url, payload)
-	y = res
 	return y
 	
 	
