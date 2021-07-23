@@ -39,7 +39,18 @@ def getUri(cop,cop2,timeFrame,theme,source):
 	time.sleep(4)
 	lem = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, '.copyForm-1aOR8tBW')))
 	y = driver.find_element_by_class_name('input-3bEGcMc9').get_attribute("value")
-
+	url = y
+	r = requests.get(url, allow_redirects=True)
+	filename = random.randint(10000000000000,99999999999999) + random.randint(10000000000000,99999999999999) 
+	filename = "u" + filename + ".png"
+	open(filename, 'wb').write(r.content)
+	with open(filename, "rb") as file:
+    		url = "https://api.imgbb.com/1/upload"
+    		payload = {
+        		"key": "a859f23787a42e9036ec053e38b3999c",
+        		"image": base64.b64encode(file.read()),
+    		}
+    		res = requests.post(url, payload)
 	driver.quit()
 	return y
 def coingecko():
