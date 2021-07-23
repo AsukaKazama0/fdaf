@@ -74,7 +74,7 @@ def coingecko():
 		"image": base64.b64encode(file.read()),
 		}
 		res = requests.post(url, payload)
-	console.log(res['data])
+	print(res['data'])
 	return res
 	
 	
