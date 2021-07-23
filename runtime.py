@@ -44,6 +44,11 @@ def getUri(cop,cop2,timeFrame,theme,source):
 	filename = random.randint(10000000000000,99999999999999) + random.randint(10000000000000,99999999999999) 
 	filename = "u" + str(filename) + ".png"
 	open(filename, 'wb').write(r.content)
+	img1 = Image.open(filename)
+  
+# Opening the secondary image (overlay image)
+	img2 = Image.open(r"./Banner.png")
+  
 	with open(filename, "rb") as file:
     		url = "https://api.imgbb.com/1/upload"
     		payload = {
@@ -52,11 +57,7 @@ def getUri(cop,cop2,timeFrame,theme,source):
     		}
     		res = requests.post(url, payload)
 	driver.quit()
-	img1 = Image.open(filename)
-  
-# Opening the secondary image (overlay image)
-	img2 = Image.open(r"./Banner.png")
-  
+
 # Pasting img2 image on top of img1 
 # starting at coordinates (0, 0)
 	img1.paste(img2, (0,0), mask = img2)
