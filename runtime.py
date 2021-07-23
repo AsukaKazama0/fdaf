@@ -52,6 +52,7 @@ def getUri(cop,cop2,timeFrame,theme,source):
     		}
     		res = requests.post(url, payload)
 	driver.quit()
+	y = res['data']['url']
 	return y
 def coingecko():
 	url = "https://www.coingecko.com/en/coins/trending"
@@ -75,6 +76,7 @@ def coingecko():
 		}
 		res = requests.post(url, payload)
 	print(res['data'])
-	return res
+	y = res['data']['url']
+	return y
 	
 	
