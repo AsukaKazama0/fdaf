@@ -17,7 +17,7 @@ def cop():
         theme = 'dark'
         
     if source == None:
-        source = 'Binance'
+        source = 'BINANCE'
     if timeFrame == None:
         timeFrame = '4H'
     if s != None:
