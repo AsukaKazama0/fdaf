@@ -48,7 +48,7 @@ def getUri(cop,cop2,timeFrame,theme,source):
   
 # Opening the secondary image (overlay image)
 	img2 = Image.open(r"./Banner.png")
-  	img1.paste(img2, (0,0), mask = img2)
+	img1.paste(img2, (0,0), mask = img2)
 	with open(filename, "rb") as file:
     		url = "https://api.imgbb.com/1/upload"
     		payload = {
