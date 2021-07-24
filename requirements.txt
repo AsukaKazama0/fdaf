@@ -7,4 +7,4 @@ requests-unixsocket==0.1.5
 SecretStorage==2.3.1
 selenium==3.141.0
 urllib3==1.26.6
-cv2
+opencv-python
