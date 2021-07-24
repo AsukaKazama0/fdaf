@@ -63,26 +63,25 @@ def getUri(cop,cop2,timeFrame,theme,source):
 	r = requests.get(url, allow_redirects=True)
 	filename = random.randint(10000000000000,99999999999999) + random.randint(10000000000000,99999999999999) 
 	filename = "u" + str(filename) + ".png"
-    	opacity = opacity / 100
-    	OriImg = cv2.imread(MainImage, -1)
-    	waterImg = cv2.imread(LogoImage, -1)
-    	tempImg = OriImg.copy()
-    	print(tempImg.shape)
-    	overlay = transparentOverlay(tempImg, waterImg, pos)
-    	output = OriImg.copy()
-    	# apply the overlay
-    	cv2.addWeighted(overlay, opacity ,output, 1 - opacity, 0, output)
-    	filename = random.randint(10000000000000,99999999999999) + random.randint(10000000000000,99999999999999) 
-   	 filename = "u" + str(filename) + ".png"
-    	cv2.imwrite(filename,output)
-    	with open(filename, "rb") as file:
-    		url = "https://api.imgbb.com/1/upload"
-    		payload = {
-        		"key": "a859f23787a42e9036ec053e38b3999c",
-        		"image": base64.b64encode(file.read()),
-    		}
-    		res = requests.post(url, payload)
-    	y = res.json()['data']['url_viewer']
+	opacity = opacity / 100
+	OriImg = cv2.imread(MainImage, -1)
+	waterImg = cv2.imread(LogoImage, -1)
+	tempImg = OriImg.copy()
+	print(tempImg.shape)
+	overlay = transparentOverlay(tempImg, waterImg, pos)
+	output = OriImg.copy()
+	cv2.addWeighted(overlay, opacity ,output, 1 - opacity, 0, output)
+	filename = random.randint(10000000000000,99999999999999) + random.randint(10000000000000,99999999999999) 
+	filename = "u" + str(filename) + ".png"
+	cv2.imwrite(filename,output)
+	with open(filename, "rb") as file:
+		url = "https://api.imgbb.com/1/upload"
+		payload = {
+			"key": "a859f23787a42e9036ec053e38b3999c",
+			"image": base64.b64encode(file.read()),
+		}
+		res = requests.post(url, payload)
+	y = res.json()['data']['url_viewer']
 
 
 	return y
