@@ -98,7 +98,7 @@ def coingecko():
 	chrome_options.add_argument("--disable-dev-shm-usage")
 	chrome_options.add_argument("--no-sandbox")
 	driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH,options=chrome_options)
-	driver.set_window_size(1366, 768)
+	driver.set_window_size(1080, 768)
 	name = random.randint(000000,999999) + random.randint(000000,999999) + random.randint(00000000,99999999)
 	name = str(name) + ".png"
 	driver.get(url)
