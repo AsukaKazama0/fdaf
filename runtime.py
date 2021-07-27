@@ -39,52 +39,54 @@ def transparentOverlay(src, overlay, pos=(0, 0), scale=1):
 #     return src
 
 
-def getUri(cop,cop2,timeFrame,theme,source):
-# 	chrome_options = webdriver.ChromeOptions()
-# 	chrome_options.add_argument("--start-maximized")
-# 	chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-# 	chrome_options.add_argument("--headless")
-# 	chrome_options.add_argument("--disable-dev-shm-usage")
-# 	chrome_options.add_argument("--no-sandbox")
+# def getUri(cop,cop2,timeFrame,theme,source):
+# # 	chrome_options = webdriver.ChromeOptions()
+# # 	chrome_options.add_argument("--start-maximized")
+# # 	chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+# # 	chrome_options.add_argument("--headless")
+# # 	chrome_options.add_argument("--disable-dev-shm-usage")
+# # 	chrome_options.add_argument("--no-sandbox")
 	
-# 	driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH,options=chrome_options)
-# 	driver.set_window_size(1920,1080)
-# 	symbol = cop;
-# 	driver.get('https://www.tradingview.com/widgetembed/?frameElementId=tradingview_9aa27&symbol={}&interval={}&theme={}&exchange={}'.format(symbol,timeFrame,theme,source))
-# 	wait = WebDriverWait(driver, 20)
+# # 	driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH,options=chrome_options)
+# # 	driver.set_window_size(1920,1080)
+# # 	symbol = cop;
+# # 	driver.get('https://www.tradingview.com/widgetembed/?frameElementId=tradingview_9aa27&symbol={}&interval={}&theme={}&exchange={}'.format(symbol,timeFrame,theme,source))
+# # 	wait = WebDriverWait(driver, 20)
 
 
-# 	elem = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, '.chart-gui-wrapper')))
-# 	clickable = driver.find_element_by_id('header-toolbar-screenshot').click();
-# 	time.sleep(4)
-# 	lem = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, '.copyForm-1aOR8tBW')))
-# 	y = driver.find_element_by_class_name('input-3bEGcMc9').get_attribute("value")
-# 	url = y
-# 	r = requests.get(url, allow_redirects=True)
-# 	filename = random.randint(10000000000000,99999999999999) + random.randint(10000000000000,99999999999999) 
-# 	filename = "u" + str(filename) + ".png"
-# 	opacity = opacity / 100
-# 	OriImg = cv2.imread(MainImage, -1)
-# 	waterImg = cv2.imread(LogoImage, -1)
-# 	tempImg = OriImg.copy()
-# 	print(tempImg.shape)
-# 	overlay = transparentOverlay(tempImg, waterImg, pos)
-# 	output = OriImg.copy()
-# 	cv2.addWeighted(overlay, opacity ,output, 1 - opacity, 0, output)
-# 	filename = random.randint(10000000000000,99999999999999) + random.randint(10000000000000,99999999999999) 
-# 	filename = "u" + str(filename) + ".png"
-# 	cv2.imwrite(filename,output)
-# 	with open(filename, "rb") as file:
-# 		url = "https://api.imgbb.com/1/upload"
-# 		payload = {
-# 			"key": "a859f23787a42e9036ec053e38b3999c",
-# 			"image": base64.b64encode(file.read()),
-# 		}
-# 		res = requests.post(url, payload)
-# 	y = res.json()['data']['url_viewer']
+# # 	elem = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, '.chart-gui-wrapper')))
+# # 	clickable = driver.find_element_by_id('header-toolbar-screenshot').click();
+# # 	time.sleep(4)
+# # 	lem = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, '.copyForm-1aOR8tBW')))
+# # 	y = driver.find_element_by_class_name('input-3bEGcMc9').get_attribute("value")
+# # 	url = y
+# # 	r = requests.get(url, allow_redirects=True)
+# # 	filename = random.randint(10000000000000,99999999999999) + random.randint(10000000000000,99999999999999) 
+# # 	filename = "u" + str(filename) + ".png"
+# # 	opacity = opacity / 100
+# # 	OriImg = cv2.imread(MainImage, -1)
+# # 	waterImg = cv2.imread(LogoImage, -1)
+# # 	tempImg = OriImg.copy()
+# # 	print(tempImg.shape)
+# # 	overlay = transparentOverlay(tempImg, waterImg, pos)
+# # 	output = OriImg.copy()
+# # 	cv2.addWeighted(overlay, opacity ,output, 1 - opacity, 0, output)
+# # 	filename = random.randint(10000000000000,99999999999999) + random.randint(10000000000000,99999999999999) 
+# # 	filename = "u" + str(filename) + ".png"
+# # 	cv2.imwrite(filename,output)
+# # 	with open(filename, "rb") as file:
+# # 		url = "https://api.imgbb.com/1/upload"
+# # 		payload = {
+# # 			"key": "a859f23787a42e9036ec053e38b3999c",
+# # 			"image": base64.b64encode(file.read()),
+# # 		}
+# # 		res = requests.post(url, payload)
+# # 	y = res.json()['data']['url_viewer']
 
-	y = "unknown"
-	return y
+# 	y = "unknown"
+# 	return y
+def geturi(a,b,c,d,e):
+	return "ok"
 def coingecko():
 	url = "https://www.coingecko.com/en/coins/trending"
 	chrome_options = webdriver.ChromeOptions()
