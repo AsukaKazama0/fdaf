@@ -17,7 +17,7 @@ GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
 CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
 # CHROMEDRIVER_PATH = './chromedriver'
 
-def transparentOverlay(src, overlay, pos=(0, 0), scale=1):
+# def transparentOverlay(src, overlay, pos=(0, 0), scale=1):
 #     """
 #     :param src: Input Color Background Image
 #     :param overlay: transparent Image (BGRA)
