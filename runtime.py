@@ -8,6 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 import os
+import urllib.request
 import base64
 import requests
 import random
@@ -63,9 +64,10 @@ def getUri(cop,cop2,timeFrame,theme,source):
 	r = requests.get(url, allow_redirects=True)
 	filename = random.randint(10000000000000,99999999999999) + random.randint(10000000000000,99999999999999) 
 	filename = "u" + str(filename) + ".png"
+	urllib.request.urlretrieve(y,filename)
 	opacity = 100 / 100
-	OriImg = cv2.imread(MainImage, -1)
-	waterImg = cv2.imread(LogoImage, -1)
+	OriImg = cv2.imread(filename, -1)
+	waterImg = cv2.imread('./Logo.png', -1)
 	tempImg = OriImg.copy()
 	print(tempImg.shape)
 	overlay = transparentOverlay(tempImg, waterImg, pos)
@@ -82,8 +84,6 @@ def getUri(cop,cop2,timeFrame,theme,source):
 		}
 		res = requests.post(url, payload)
 	y = res.json()['data']['url_viewer']
-
-	y = "unknown"
 	return y
 
 def coingecko():
