@@ -53,7 +53,7 @@ def getUri(cop,cop2,timeFrame,theme,source):
 	symbol = cop;
 	driver.get('https://www.tradingview.com/widgetembed/?frameElementId=tradingview_9aa27&symbol={}&interval={}&theme={}&exchange={}'.format(symbol,timeFrame,theme,source))
 	wait = WebDriverWait(driver, 20)
-	pos = (0,20)
+	pos = (0,50)
 
 	elem = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, '.chart-gui-wrapper')))
 	clickable = driver.find_element_by_id('header-toolbar-screenshot').click();
