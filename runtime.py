@@ -63,7 +63,7 @@ def getUri(cop,cop2,timeFrame,theme,source):
 	r = requests.get(url, allow_redirects=True)
 	filename = random.randint(10000000000000,99999999999999) + random.randint(10000000000000,99999999999999) 
 	filename = "u" + str(filename) + ".png"
-	opacity = opacity / 100
+	opacity = 100 / 100
 	OriImg = cv2.imread(MainImage, -1)
 	waterImg = cv2.imread(LogoImage, -1)
 	tempImg = OriImg.copy()
