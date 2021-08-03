@@ -119,8 +119,8 @@ def coingecko():
 	os.remove(str(name))
 	driver.quit()
 	return y
-def analysis(interval,symbol):
-	url = "https://s.tradingview.com/embed-widget/technical-analysis/?locale=in&interval={}&symbol={}"
+def analysis(interval,symbol,theme):
+	url = "https://s.tradingview.com/embed-widget/technical-analysis/?locale=in&interval={}&symbol={}&colorTheme={}"
 	chrome_options = webdriver.ChromeOptions()
 	chrome_options.add_argument("--start-maximized")
 	chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
@@ -131,11 +131,11 @@ def analysis(interval,symbol):
 	driver.set_window_size(500, 547)
 	name = random.randint(000000,999999) + random.randint(000000,999999) + random.randint(00000000,99999999)
 	name = str(name) + ".png"
-	driver.get(url.format(interval,symbol))
+	driver.get(url.format(interval,symbol,theme))
 	dwait = WebDriverWait(driver, 20)
 	dwait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, '.speedometersContainer-DPgs-R4s')))
-	getHtml = "element = document.querySelector('.speedometersContainer-DPgs-R4s');element.innerHTML=<img src='https://i.ibb.co/j4nhYg8/Logo-3.png'/> + String(element.innerHTML)"
-# 	driver.execute_script("window.scrollTo(0, 390)") 
+	getHtml = 'element = document.querySelector(".speedometersContainer-DPgs-R4s");element.innerHTML += "<center><img src="https://i.ibb.co/j4nhYg8/Logo-3.png "/></center>" '
+ 	driver.execute_script(getHtml) 
 # 	jsscript = "document.querySelector('#cookie-notice').style.display='none';"
 # 	driver.execute_script(jsscript)
 
