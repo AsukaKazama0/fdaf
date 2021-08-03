@@ -119,6 +119,38 @@ def coingecko():
 	os.remove(str(name))
 	driver.quit()
 	return y
+def analysis(interval,symbol):
+	url = "https://s.tradingview.com/embed-widget/technical-analysis/?locale=in&interval={}&symbol={}"
+	chrome_options = webdriver.ChromeOptions()
+	chrome_options.add_argument("--start-maximized")
+	chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+	chrome_options.add_argument("--headless")
+	chrome_options.add_argument("--disable-dev-shm-usage")
+	chrome_options.add_argument("--no-sandbox")
+	driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH,options=chrome_options)
+	driver.set_window_size(500, 547)
+	name = random.randint(000000,999999) + random.randint(000000,999999) + random.randint(00000000,99999999)
+	name = str(name) + ".png"
+	driver.get(url.format(interval,symbol)
+	wait = WebDriverWait(driver, 20)
+	wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, '.speedometersContainer-DPgs-R4s')))
+# 	driver.execute_script("window.scrollTo(0, 390)") 
+# 	jsscript = "document.querySelector('#cookie-notice').style.display='none';"
+# 	driver.execute_script(jsscript)
 
+	driver.save_screenshot(name)
+	
+	
+	with open(str(name), "rb") as file:
+		url = "https://api.imgbb.com/1/upload"
+		payload = {
+		"key": "a859f23787a42e9036ec053e38b3999c",
+		"image": base64.b64encode(file.read()),
+		}
+	res = requests.post(url, payload)
+	y = res.json()['data']['display_url']
+	os.remove(str(name))
+	driver.quit()
+	return y
 	
 	
