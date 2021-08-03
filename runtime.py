@@ -132,8 +132,8 @@ def analysis(interval,symbol):
 	name = random.randint(000000,999999) + random.randint(000000,999999) + random.randint(00000000,99999999)
 	name = str(name) + ".png"
 	driver.get(url.format(interval,symbol)
-	wait = WebDriverWait(driver, 20)
-	wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, '.speedometersContainer-DPgs-R4s')))
+	dwait = WebDriverWait(driver, 20)
+	dwait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, '.speedometersContainer-DPgs-R4s')))
 # 	driver.execute_script("window.scrollTo(0, 390)") 
 # 	jsscript = "document.querySelector('#cookie-notice').style.display='none';"
 # 	driver.execute_script(jsscript)
