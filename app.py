@@ -38,5 +38,5 @@ def coc():
 def analy():
     symbol = request.args.get('s')
     interval = request.args.get('time')
-    returnUri = alaysis(interval,symbol)
+    returnUri = analysis(interval,symbol)
     return returnUri
