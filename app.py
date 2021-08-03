@@ -35,7 +35,7 @@ def coc():
         returnUri = coingecko()
         return returnUri
 @app.route("/api/v4/analysis", methods=["GET"])
-def coc():
+def analy():
     symbol = request.args.get('s')
     interval = request.args.get('time')
     returnUri = alaysis(interval,symbol)
