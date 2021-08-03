@@ -134,6 +134,7 @@ def analysis(interval,symbol):
 	driver.get(url.format(interval,symbol))
 	dwait = WebDriverWait(driver, 20)
 	dwait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, '.speedometersContainer-DPgs-R4s')))
+	getHtml = "element = document.querySelector('.speedometersContainer-DPgs-R4s');element.innerHTML=<img src='https://i.ibb.co/j4nhYg8/Logo-3.png'/> + String(element.innerHTML)"
 # 	driver.execute_script("window.scrollTo(0, 390)") 
 # 	jsscript = "document.querySelector('#cookie-notice').style.display='none';"
 # 	driver.execute_script(jsscript)
