@@ -38,5 +38,16 @@ def coc():
 def analy():
     symbol = request.args.get('s')
     interval = request.args.get('time')
-    returnUri = analysis(interval,symbol)
-    return returnUri
+    theme = request.args.get('theme')
+    if theme == None:
+        theme == "Dark"
+    if interval == None:
+        interval = '15m'
+    if symbol != None:
+        returnUri = analysis(interval,symbol)
+        json = {"cod": 200,"result":"sucess","imgUri":returnUri }
+    else:
+        json = """{"code": 500,
+        "result":"error"
+        }"""
+    return json
