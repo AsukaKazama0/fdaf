@@ -135,7 +135,7 @@ def analysis(interval,symbol,theme):
 	dwait = WebDriverWait(driver, 20)
 	dwait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, '.speedometersContainer-DPgs-R4s')))
 	getHtml = 'element = document.querySelector(".speedometersContainer-DPgs-R4s");element.innerHTML += "<center><img src="https://i.ibb.co/j4nhYg8/Logo-3.png "/></center>" '
- 	driver.execute_script(getHtml) 
+	driver.execute_script(getHtml) 
 # 	jsscript = "document.querySelector('#cookie-notice').style.display='none';"
 # 	driver.execute_script(jsscript)
 
