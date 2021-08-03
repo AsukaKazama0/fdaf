@@ -24,7 +24,7 @@ def cop():
         if s2 == None:
            s2 = 'USDT'
         returnUri = getUri(s,s2,timeFrame,theme,source)
-        json = {"cod": 200,"result":"sucess","imgUri":returnUri }
+        json = {"code": 200,"result":"sucess","imgUri":returnUri }
     else:
         json = """{"code": 500,
         "result":"error"
@@ -39,13 +39,14 @@ def analy():
     symbol = request.args.get('s')
     interval = request.args.get('time')
     theme = request.args.get('theme')
+    theme = str(theme).lower()
     if theme == None:
-        theme == "Dark"
+        theme == "dark"
     if interval == None:
         interval = '15m'
     if symbol != None:
-        returnUri = analysis(interval,symbol)
-        json = {"cod": 200,"result":"sucess","imgUri":returnUri }
+        returnUri = analysis(interval,symbol,theme)
+        json = {"code": 200,"result":"sucess","imgUri":returnUri }
     else:
         json = """{"code": 500,
         "result":"error"
