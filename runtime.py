@@ -123,21 +123,27 @@ def analysis(interval,symbol,theme):
 	url = "https://s.tradingview.com/embed-widget/technical-analysis/?locale=in&interval={}&symbol={}&colorTheme={}"
 	chrome_options = webdriver.ChromeOptions()
 	chrome_options.add_argument("--start-maximized")
-	chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+	# chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
 	chrome_options.add_argument("--headless")
 	chrome_options.add_argument("--disable-dev-shm-usage")
 	chrome_options.add_argument("--no-sandbox")
 	driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH,options=chrome_options)
-	driver.set_window_size(500, 547)
+	driver.set_window_size(500, 700)
 	name = random.randint(000000,999999) + random.randint(000000,999999) + random.randint(00000000,99999999)
 	name = str(name) + ".png"
 	driver.get(url.format(interval,symbol,theme))
 	dwait = WebDriverWait(driver, 20)
 	dwait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, '.speedometersContainer-DPgs-R4s')))
-	getHtml = """element = document.querySelector(".speedometersContainer-DPgs-R4s");element.innerHTML += "<center><img src='https://i.ibb.co/j4nhYg8/Logo-3.png'/></center>" """
+	getHtml = """element = document.querySelector(".speedometersContainer-DPgs-R4s");
+	element.innerHTML += "<div class='ButterImg'><img class='ButterLemon' src='https://i.ibb.co/j4nhYg8/Logo-3.png'/></div>";
+	elementp = document.querySelector('.ButterImg');
+	elementp.style.display = 'flex';
+	elementp.style.width = '100%';
+	elementp.style.justifyContent = 'center' """
 	driver.execute_script(getHtml) 
 # 	jsscript = "document.querySelector('#cookie-notice').style.display='none';"
 # 	driver.execute_script(jsscript)
+	dwait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, '.ButterLemon')))
 
 	driver.save_screenshot(name)
 	
