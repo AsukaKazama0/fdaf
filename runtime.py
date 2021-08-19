@@ -185,6 +185,8 @@ def getStock(cop,timeFrame,theme):
 		elem = driver.find_element_by_css_selector(".options-1TbOurr7 .option-1TbOurr7:nth-child(5)").click()
 	elif timeFrame is 'ALL':
 		elem = driver.find_element_by_css_selector(".options-1TbOurr7 .option-1TbOurr7:nth-child(6))").click()
+	else:
+		return
 	time.sleep(3)	
 	filename = random.randint(10000000000000,99999999999999) + random.randint(10000000000000,99999999999999) 
 	filename = "u" + str(filename) + ".png"
