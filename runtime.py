@@ -159,5 +159,56 @@ def analysis(interval,symbol,theme):
 	os.remove(str(name))
 	driver.quit()
 	return y
+def getStock(cop,timeFrame,theme):
+	chrome_options = webdriver.ChromeOptions()
+	chrome_options.add_argument("--start-maximized")
+	chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+	# chrome_options.add_argument("--headless")
+	chrome_options.add_argument("--disable-dev-shm-usage")
+	chrome_options.add_argument("--no-sandbox")
+	
+	driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH,options=chrome_options)
+	driver.set_window_size(1920,1080)
+	symbol = cop;
+	driver.get('https://s.tradingview.com/mediumwidgetembed/?symbols={}&locale=in&&colorTheme={}'.format(symbol,theme.lower()))
+	wait = WebDriverWait(driver, 20)
+	wait.until(EC.presence_of_element_located((By.CSS_SELECTOR,".options-1TbOurr7")))
+	if timeFrame is '1D':
+		elem = driver.find_element_by_css_selector(".options-1TbOurr7 .option-1TbOurr7:nth-child(1)").click()
+	elif timeFrame is '1M':
+		elem = driver.find_element_by_css_selector(".options-1TbOurr7 .option-1TbOurr7:nth-child(2)").click()
+	elif timeFrame is '3M':
+		elem = driver.find_element_by_css_selector(".options-1TbOurr7 .option-1TbOurr7:nth-child(3)").click()
+	elif timeFrame is '1Y':
+		elem = driver.find_element_by_css_selector(".options-1TbOurr7 .option-1TbOurr7:nth-child(4)").click()
+	elif timeFrame is '5Y':
+		elem = driver.find_element_by_css_selector(".options-1TbOurr7 .option-1TbOurr7:nth-child(5)").click()
+	elif timeFrame is 'ALL':
+		elem = driver.find_element_by_css_selector(".options-1TbOurr7 .option-1TbOurr7:nth-child(6))").click()
+	time.sleep(3)	
+	filename = random.randint(10000000000000,99999999999999) + random.randint(10000000000000,99999999999999) 
+	filename = "u" + str(filename) + ".png"
+	getHtml = """
+	var elem = document.createElement('div');
+	elem.style.cssText = 'display:flex;position:absolute;width:100%;justify-content:center;z-index:99999;top:5px;';
+	document.body.appendChild(elem);
+	elem.innerHTML = "<div class='ButterImg'><img class='ButterLemon' src='https://i.ibb.co/j4nhYg8/Logo-3.png'/></div>"
+"""
+	driver.execute_script(getHtml) 
+	wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, '.ButterLemon')))
+
+	driver.save_screenshot(filename)
+
+	with open(filename, "rb") as file:
+		url = "https://api.imgbb.com/1/upload"
+		payload = {
+			"key": "a859f23787a42e9036ec053e38b3999c",
+			"image": base64.b64encode(file.read()),
+		}
+		res = requests.post(url, payload)
+	y = res.json()['data']['image']["url"]
+	os.remove(filename)
+	return y
+
 	
 	
