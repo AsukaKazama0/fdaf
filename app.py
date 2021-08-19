@@ -34,7 +34,8 @@ def cop():
 def coc():
         returnUri = coingecko()
         return returnUri
-@app.route("/api/v4/analysis", methods=["GET"])
+
+    @app.route("/api/v4/analysis", methods=["GET"])
 def analy():
     symbol = request.args.get('s')
     interval = request.args.get('time')
@@ -52,3 +53,18 @@ def analy():
         "result":"error"
         }"""
     return json
+@app.route("/api/v4/stock", methods=["GET"])
+def routage:
+    symbol = request.args.get('s')
+    theme = request.args.get('theme')
+    interval = request.args.get('time')
+    
+    theme = str(theme).lower()
+    if interval == None:
+        interval = '1D'
+    if theme == None:
+        theme == "dark"
+    if symbol != None:
+        
+        returnUri = getStock(symbol,interval,theme)
+        json = {"code": 200,"result":"sucess","imgUri":returnUri }
